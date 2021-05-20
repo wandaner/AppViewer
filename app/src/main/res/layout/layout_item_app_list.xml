@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.situ.wandance.appviewer.views.SlideItemLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.situ.wandance.appviewer.views.SlideItemView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="74dp"
@@ -79,8 +79,10 @@
         </LinearLayout>
     </FrameLayout>
     <LinearLayout
+        android:id="@+id/btns"
         android:layout_width="140dp"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:focusable="false">
         <TextView
             android:id="@+id/btn1"
             android:layout_width="70dp"
@@ -106,4 +108,4 @@
             android:background="@color/colorOrange"
             android:text="分享"/>
     </LinearLayout>
-</com.situ.wandance.appviewer.views.SlideItemLinearLayout>
+</com.situ.wandance.appviewer.views.SlideItemView>

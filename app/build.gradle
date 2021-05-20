@@ -14,10 +14,26 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        debug {
+            keyAlias 's123456'
+            keyPassword 's123456'
+            storeFile file('./s123456.keystore')
+            storePassword 's123456'
+
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+        debug {
+            signingConfig signingConfigs.debug
         }
     }
 
@@ -29,4 +45,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.recyclerview:recyclerview:1.2.0-beta01'
+
+    implementation 'com.umeng.umsdk:common:9.3.8' // 基础库
+    implementation 'com.umeng.umsdk:asms:1.2.2'   // 基础库
 }

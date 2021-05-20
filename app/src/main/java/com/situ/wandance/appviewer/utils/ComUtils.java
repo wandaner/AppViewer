@@ -1,6 +1,8 @@
 package com.situ.wandance.appviewer.utils;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -50,9 +52,6 @@ public class ComUtils {
 
     /**
      * 校验Activity是否合法
-     *
-     * @param activity atx
-     * @return true/false
      */
     public static boolean checkActivityExist(Activity activity) {
         if ((null == activity) || activity.isFinishing() || activity.isRestricted()) {
@@ -72,9 +71,6 @@ public class ComUtils {
 
     /**
      * 分享
-     *
-     * @param context
-     * @param info
      */
     public static void shareTextBySys(Context context, String info) {
         try {
@@ -89,5 +85,16 @@ public class ComUtils {
         } catch (Exception e) {
 
         }
+    }
+
+    /**
+     * 拷贝到粘贴板
+     */
+    public static void copyToKeyBoard(Context context, String msg) {
+        ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData mClipData = ClipData.newPlainText("AppInfo", msg);
+        assert cm != null;
+        cm.setPrimaryClip(mClipData);
+        ComUtils.toast(context, String.format("内容复制到粘贴板 >> [%s]", msg));
     }
 }

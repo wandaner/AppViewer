@@ -4,6 +4,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -65,6 +66,7 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.AppItemV
         private TextView mSub1;
         private TextView mSub2;
 
+        private View btns;
         private TextView mBtn1;
         private TextView mBtn2;
 
@@ -79,10 +81,18 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.AppItemV
             mSub1 = itemView.findViewById(R.id.sub1);
             mSub2 = itemView.findViewById(R.id.sub2);
             mVersion = itemView.findViewById(R.id.version);
+            btns = itemView.findViewById(R.id.btns);
             mBtn1 = itemView.findViewById(R.id.btn1);
             mBtn2 = itemView.findViewById(R.id.btn2);
 
-            mSub1.setOnClickListener(new View.OnClickListener() {
+            btns.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ComUtils.toast(mCxt, String.format("内容复制到粘贴板 >> [%s]", "12131"));
+                }
+            });
+
+            mBtn1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (info != null) {
@@ -96,7 +106,7 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.AppItemV
                 }
             });
 
-            mSub2.setOnClickListener(new View.OnClickListener() {
+            mBtn2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (info != null) {

@@ -1,4 +1,4 @@
-package com.situ.wandance.appviewer.views;
+package com.situ.wandance.appviewer.views.useless;
 
 import android.content.Context;
 import android.graphics.Rect;

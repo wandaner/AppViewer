@@ -39,7 +39,7 @@ public class AppUtils {
                 appList.add(AppInfo.create(context, packageInfo));
             }
         }
-        Log.i("xukai", String.valueOf(System.currentTimeMillis() - s));
+//        Log.i("xukai", String.valueOf(System.currentTimeMillis() - s));
         return appList;
     }
 
